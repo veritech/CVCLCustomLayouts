@@ -58,7 +58,7 @@
 
 - (void)computeAllLayout {
     CGSize size = self.collectionView.bounds.size;
-    LOG(@"bounds.size: %@", NSStringFromCGSize(size));
+    NSLog(@"bounds.size: %@", NSStringFromCGSize(size));
     _prepareLayoutSize = size;
     
     _gridColumns = (NSInteger)((size.width - self.mergin) / (self.cellSize.width + self.mergin));
@@ -181,7 +181,7 @@
 }
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    LOG(@"SupplementaryView: [%d-%d]", indexPath.section, indexPath.item);
+    NSLog(@"SupplementaryView: [%d-%d]", indexPath.section, indexPath.item);
 
     if ([kind isEqualToString:UICollectionElementKindSectionHeader] && self.headerLayouts) {
         return self.headerLayouts[indexPath.section];
@@ -266,11 +266,11 @@
 }
 
 - (UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingSupplementaryElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)elementIndexPath {
-    LOG(@"Appearing Supp: [%d-%d] %@", elementIndexPath.section, elementIndexPath.item, elementKind);
+    NSLog(@"Appearing Supp: [%d-%d] %@", elementIndexPath.section, elementIndexPath.item, elementKind);
     return [self layoutAttributesForSupplementaryViewOfKind:elementKind atIndexPath:elementIndexPath];
 }
 - (UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingSupplementaryElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)elementIndexPath {
-    LOG(@"Disappearing Supp: [%d-%d] %@", elementIndexPath.section, elementIndexPath.item, elementKind);
+    NSLog(@"Disappearing Supp: [%d-%d] %@", elementIndexPath.section, elementIndexPath.item, elementKind);
     return [self layoutAttributesForSupplementaryViewOfKind:elementKind atIndexPath:elementIndexPath];
 }
 

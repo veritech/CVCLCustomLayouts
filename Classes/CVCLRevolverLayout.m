@@ -228,7 +228,7 @@
 
 @implementation CVCLRevolverLayoutAxisView
 + (void)initialize {
-    LOG(@"initialize");
+    NSLog(@"initialize");
 }
 
 - (id)initWithFrame:(CGRect)frame

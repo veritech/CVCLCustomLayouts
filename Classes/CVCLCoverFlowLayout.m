@@ -408,24 +408,23 @@ static NSString *kDecorationViewKindReflection = @"DecorationViewReflection";
 - (void)setHidden:(BOOL)hidden {
     [super setHidden:hidden];
     if (hidden) {
-        LOG_METHOD;
+        NSLog(@"SetHidden");
     }
 }
 
 - (void)didMoveToSuperview {
     [super didMoveToSuperview];
     _useCount++;
-    LOG(@"Did Move to Superview: %@", self);
+    NSLog(@"Did Move to Superview: %@", self);
 }
 
 - (void)removeFromSuperview {
-    LOG(@"Remove from Superview: %@", self);
-    LOG_RC(self);
+    NSLog(@"Remove from Superview: %@", self);
     [super removeFromSuperview];
 }
 
 - (void)dealloc {
-    LOG(@"dealloc ReflectionView: %@", self);
+    NSLog(@"dealloc ReflectionView: %@", self);
 }
 
 - (NSString *)description {
