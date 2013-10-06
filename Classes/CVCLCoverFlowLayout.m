@@ -64,6 +64,9 @@ static NSString *kDecorationViewKindReflection = @"DecorationViewReflection";
 - (void)setInitialValues {
     self.cellSize = CGSizeMake(100, 100);
     self.cellInterval = self.cellSize.width / 3;
+    self.referenceHeaderSize = CGSizeZero;
+    self.referenceFooterSize = CGSizeZero;
+    self.itemYPosition = 0.5f;    
     
     [self registerClass:[CVCLReflectionView class] forDecorationViewOfKind:kDecorationViewKindReflection];
 }
@@ -200,7 +203,7 @@ static NSString *kDecorationViewKindReflection = @"DecorationViewReflection";
     
     CGRect frame;
     frame.origin.x = cellOffsetX;
-    frame.origin.y = (self.collectionView.bounds.size.height - self.cellSize.height) / 2.0;
+    frame.origin.y = (self.collectionView.bounds.size.height - self.cellSize.height) * self.itemYPositionModifier;
     frame.size = self.cellSize;
     
     attr.frame = frame;
@@ -215,7 +218,7 @@ static NSString *kDecorationViewKindReflection = @"DecorationViewReflection";
     UICollectionViewLayoutAttributes *attr = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:kind withIndexPath:indexPath];
     
     CGRect frame;
-    frame.size = CGSizeMake(self.collectionView.bounds.size.width, 30);
+    frame.size = [kind isEqualToString:UICollectionElementKindSectionHeader] ? [self referenceHeaderSize] : [self referenceFooterSize];
     frame.origin.x = self.collectionView.contentOffset.x;
     frame.origin.y = [kind isEqualToString:UICollectionElementKindSectionHeader] ? 0 : self.collectionView.bounds.size.height - frame.size.height;
     

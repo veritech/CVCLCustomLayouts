@@ -8,7 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface CVCLCoverFlowLayout : UICollectionViewLayout
+
+/**
+ *  The size of the header view
+ */
+@property (nonatomic, assign) CGSize referenceHeaderSize;
+
+/**
+ *  The size of the footer view
+ */
+@property (nonatomic, assign) CGSize referenceFooterSize;
+
+/**
+ *  The Y position modifier for the item, as a faction of the items height 
+ */
+@property (nonatomic, assign) CGFloat itemYPositionModifier;
 
 @property (nonatomic, assign) CGSize cellSize;
 @property (nonatomic, assign) CGFloat cellInterval;
