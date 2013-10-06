@@ -66,7 +66,7 @@ static NSString *kDecorationViewKindReflection = @"DecorationViewReflection";
     self.cellInterval = self.cellSize.width / 3;
     self.referenceHeaderSize = CGSizeZero;
     self.referenceFooterSize = CGSizeZero;
-    self.itemYPosition = 0.5f;    
+    self.itemYPositionModifier = 0.5f;    
     
     [self registerClass:[CVCLReflectionView class] forDecorationViewOfKind:kDecorationViewKindReflection];
 }
